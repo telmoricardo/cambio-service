@@ -1,0 +1,29 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: cambio-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  flyway:
+    url: jdbc:postgresql://localhost:5432/
+    user: postgres
+    password: postgres
+    table: flyway_schema_history
+    schemas: cambio_service
+    enabled: true
+    out-of-order: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
